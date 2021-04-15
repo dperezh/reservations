@@ -28,7 +28,7 @@ class ReservationRepository
      */
     public function getAll()
     {
-        return Reservation::with('contact')->get();
+        return Reservation::with('contact.contactType')->get();
     }
 
     /**
@@ -39,7 +39,7 @@ class ReservationRepository
      */
     public function get($reservation)
     {
-        return Reservation::with('contact')->find($reservation->id);
+        return Reservation::with('contact.contactType')->find($reservation->id);
     }
 
     /**
