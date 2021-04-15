@@ -1,0 +1,27 @@
+.total-width {
+  width: 100%;
+
+  &.height-banner {
+    height: 150px;
+  }
+
+  &.height-nav {
+    background-color: rgba(250, 250, 250);
+  }
+}
+
+.notification {
+  float: right;
+  z-index: 9999;
+}
+
+.button {
+  background-color: gray;
+  color: white;
+}
+
+.image-background {
+  background-image: url('../assets/banner.jpeg');
+  background-size: cover;
+  background-position: center;
+}
