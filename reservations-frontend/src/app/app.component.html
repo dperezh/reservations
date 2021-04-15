@@ -2,6 +2,19 @@
 
   <p-messages class="notification"></p-messages>
 
+  <span class="form-inline">
+    <select
+        class="form-control language"
+        #selectedLang
+        (change)="switchLang(selectedLang.value)">
+      <option *ngFor="let language of translate.getLangs()"
+        [value]="language"
+        [selected]="language === translate.currentLang">
+        {{ language }}
+      </option>
+    </select>
+  </span>
+
   <div class="total-width height-banner image-background"></div>
 
   <router-outlet></router-outlet>

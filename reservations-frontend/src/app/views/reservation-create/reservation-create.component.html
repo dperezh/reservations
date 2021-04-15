@@ -1,7 +1,7 @@
 <app-navigation-bar
-  title="Create Reservation"
-  [description]="description"
-  buttonName="CONTACT LIST"
+  title="CreateReservation"
+  description="CreateReservationDescription"
+  buttonName="ContactList"
   buttonLink='/contacts'
   [return]="true"
 ></app-navigation-bar>
@@ -12,32 +12,31 @@
       <p-dropdown
         [options]="contacts"
         [(ngModel)]="reservation.contact"
-        placeholder="Contact Name"
+        placeholder="{{ 'ContactName' | translate }}"
         optionLabel="name"
         class="p-dropdown-lg"
       ></p-dropdown>
     </div>
     <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
-      <input type="text" disabled pInputText placeholder="Contact Type" [(ngModel)]="reservation.contact.contact_type.description">
+      <input type="text" disabled pInputText placeholder="{{'ContactType' | translate}}" [(ngModel)]="reservation.contact.contact_type.description">
     </div>
     <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
-      <input type="text" disabled pInputText placeholder="Phone" [(ngModel)]="reservation.contact.phone_number">
+      <input type="text" disabled pInputText placeholder="{{'Phone' | translate}}" [(ngModel)]="reservation.contact.phone_number">
     </div>
     <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
-      <p-calendar inputId="basic" [(ngModel)]="reservation.date" placeholder="Reservation Date"></p-calendar>
+      <p-calendar inputId="basic" [(ngModel)]="reservation.date" placeholder="{{'ReservationDate' | translate}}"></p-calendar>
     </div>
     <div class="p-col-12">
       <p-editor
         [(ngModel)]="reservation.description"
-        [style]="{'height':'250px'}"
-        placeholder="{{'Enter Description'}}">
+        [style]="{'height':'250px'}">
       </p-editor>
     </div>
     <div class="p-col-12 submit">
       <button
         mat-flat-button color='warn'
         [disabled]="!reservation.contact || !reservation.date || !reservation.description"
-        (click)="saveReservation()">SEND</button>
+        (click)="saveReservation()">{{'Send' | translate}}</button>
     </div>
   </div>
 </div>

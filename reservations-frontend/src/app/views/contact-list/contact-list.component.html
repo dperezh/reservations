@@ -1,7 +1,7 @@
 <app-navigation-bar
-  title="Contact List"
-  [description]="description"
-  buttonName="CREATE CONTACT"
+  title="ContactList"
+  description="ContactListDescription"
+  buttonName="CreateContact"
   buttonLink='/create-contact'
   [return]="true"
 ></app-navigation-bar>
@@ -20,10 +20,10 @@
     <ng-template pTemplate="header">
         <tr>
           <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
-          <th pSortableColumn="name">Contact <p-sortIcon field="name"></p-sortIcon></th>
-          <th pSortableColumn="phone_number">Phone <p-sortIcon field="phone_number"></p-sortIcon></th>
-          <th pSortableColumn="contact_type.description">Contact Type <p-sortIcon field="contact_type.description"></p-sortIcon></th>
-          <th>Actions</th>
+          <th pSortableColumn="name">{{'Contact' | translate}} <p-sortIcon field="name"></p-sortIcon></th>
+          <th pSortableColumn="phone_number">{{'Phone' | translate}} <p-sortIcon field="phone_number"></p-sortIcon></th>
+          <th pSortableColumn="contact_type.description">{{'ContactType' | translate}} <p-sortIcon field="contact_type.description"></p-sortIcon></th>
+          <th>{{'Actions' | translate}}</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-contact>
@@ -41,8 +41,8 @@
             </td>
             <td>
               <div class="p-d-inline">
-                <button mat-flat-button class="button p-mr-1" (click)="editContact(contact)">EDIT</button>
-                <button mat-flat-button color="warn" (click)="deleteContact(contact)">DELETE</button>
+                <button mat-flat-button class="button p-mr-1" (click)="editContact(contact)">{{'Edit' | translate}}</button>
+                <button mat-flat-button color="warn" (click)="deleteContact(contact)">{{'Delete' | translate}}</button>
               </div>
             </td>
         </tr>

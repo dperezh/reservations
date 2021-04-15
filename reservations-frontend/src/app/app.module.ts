@@ -8,6 +8,7 @@ import { ReservationListComponent } from './views/reservation-list/reservation-l
 import { ReservationCreateComponent } from './views/reservation-create/reservation-create.component';
 import { ContactListComponent } from './views/contact-list/contact-list.component';
 import { ContactCreateComponent } from './views/contact-create/contact-create.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +32,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { MessageService } from 'primeng/api';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -62,9 +65,21 @@ import { MessageService } from 'primeng/api';
     EditorModule,
     AutoCompleteModule,
     MessageModule,
-    MessagesModule
+    MessagesModule,
+    MatSelectModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function httpTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

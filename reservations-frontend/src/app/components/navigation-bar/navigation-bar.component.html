@@ -2,16 +2,16 @@
   <div class="inside-div">
     <div class="p-grid nav">
       <div class="p-col-12 p-md-3 p-lg-3 center-nav text">
-        <h1>{{ title }}</h1>
+        <h1>{{ title | translate }}</h1>
       </div>
       <div class="p-col-12 p-md-6 p-lg-6center-nav">
         <p>
-          {{ description }}
+          {{ description | translate}}
         </p>
       </div>
       <div class="p-col-12 p-md-3 p-lg-3 center-nav text">
-        <button *ngIf="buttonName" mat-flat-button class="button" [routerLink]="buttonLink">{{ buttonName }}</button>
-        <button *ngIf="return" mat-flat-button class="button" (click)="goBack()">BACK</button>
+        <button *ngIf="buttonName" mat-flat-button class="button" [routerLink]="buttonLink">{{ buttonName | translate }}</button>
+        <button *ngIf="return" mat-flat-button class="button" (click)="goBack()">{{ 'Back' | translate}}</button>
       </div>
     </div>
   </div>

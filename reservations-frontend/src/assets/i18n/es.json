@@ -1,0 +1,28 @@
+{
+  "ContactList": "Lista de Contactos",
+  "Back": "Atrás",
+  "CreateReservation": "Crear Reservación",
+  "ReservationList": "Lista Reservaciones",
+  "Edit": "Editar",
+  "Reservation": "Reservación",
+  "Ranking": "Evaluación",
+  "Favorite": "Favorito",
+  "Actions": "Acciones",
+  "CreateContact": "Crear Contacto",
+  "Contact": "Contacto",
+  "Phone": "Teléfono",
+  "ContactType": "Tipo de Contacto",
+  "Delete": "Eliminar",
+  "ContactName": "Nombre Contacto",
+  "BirthDate": "Fecha Nacimiento",
+  "ReservationDate": "Fecha Reservación",
+  "AddFavorite": "Añadir Favorito",
+  "EnterDescription": "Esciba la Descripción",
+  "Send": "Enviar",
+
+  "CreateReservationDescription": "En esta página puede crear nuevas reservas y asociarlas con un cliente específico, en cualquier caso se insertarán los valores de favorito y rating por defecto, estos valores se pueden cambiar en la página anterior",
+  "ReservationListDescription": "En esta página puedes ver las reservas creadas hasta el momento, también tienes la posibilidad de editar una reserva que quieras, designar si tienes una reserva favorita o evaluar alguna",
+  "ContactListDescription": "En esta página puede revisar todos los contactos existentes en la aplicación, que puede asociar con una reserva",
+  "CreateContactDescription": "En esta página puede crear nuevos contactos de clientes para asociarlos con las diferentes reservas según corresponda"
+
+}

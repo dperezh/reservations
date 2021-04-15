@@ -1,34 +1,34 @@
 <app-navigation-bar
-  title="Create Contact"
-  [description]="description"
+  title="CreateContact"
+  description="CreateContactDescription"
   [return]="true"
 ></app-navigation-bar>
 
 <div *ngIf="contact && contactTypes" class="body">
   <div class="p-grid card">
     <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
-      <input type="text" pInputText placeholder="Contact Name" [(ngModel)]="contact.name">
+      <input type="text" pInputText placeholder="{{'ContactName' | translate}}" [(ngModel)]="contact.name">
     </div>
     <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
       <p-dropdown
         [options]="contactTypes"
         [(ngModel)]="contact.contact_type"
-        placeholder="ContactType"
+        placeholder="{{'ContactType' | translate}}"
         optionLabel="description"
         class="combo"
       ></p-dropdown>
     </div>
     <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
-      <p-inputMask mask="9-999-99-99" [(ngModel)]="contact.phone_number" placeholder="Phone"></p-inputMask>
+      <p-inputMask mask="9-999-99-99" [(ngModel)]="contact.phone_number" placeholder="{{'Phone' | translate}}"></p-inputMask>
     </div>
     <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
-      <p-calendar inputId="basic" [(ngModel)]="contact.birth_date" placeholder="Birth Date"></p-calendar>
+      <p-calendar inputId="basic" [(ngModel)]="contact.birth_date" placeholder="{{'BirthDate' | translate}}"></p-calendar>
     </div>
     <div class="p-col-12 submit">
       <button
         mat-flat-button color='warn'
         [disabled]="!contact.name || !contact.birth_date || !contact.contact_type.id"
-        (click)="saveContact()">SEND</button>
+        (click)="saveContact()">{{'Send' | translate}}</button>
     </div>
   </div>
 </div>
