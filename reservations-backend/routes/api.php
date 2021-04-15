@@ -18,6 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('contactTypes', ContactTypeController::class);
-Route::resource('contacts', ContactController::class);
-Route::resource('reservations', ReservationController::class);
+Route::middleware(['cors'])->group(function () {
+    Route::resource('contactTypes', ContactTypeController::class);
+    Route::resource('contacts', ContactController::class);
+    Route::resource('reservations', ReservationController::class);
+});
