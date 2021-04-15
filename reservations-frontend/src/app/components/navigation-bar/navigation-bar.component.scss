@@ -1,0 +1,36 @@
+@import '../../app.component.scss';
+
+.center {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.separate-nav {
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+.center-nav {
+  align-self: center;
+  &.text {
+    text-align: center;
+  }
+}
+
+.inside-div {
+  width: 80%;
+  margin: auto;
+}
+
+h1, p {
+  margin: 0px;
+}
+
+h1 {
+  color: #f44336;
+  font-size: 32px;
+}
+
+button {
+  margin-right: 2%;
+}
