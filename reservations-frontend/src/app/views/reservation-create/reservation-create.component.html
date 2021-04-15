@@ -1,0 +1,44 @@
+<app-navigation-bar
+  title="Create Reservation"
+  [description]="description"
+  buttonName="CONTACT LIST"
+  buttonLink='/contacts'
+  [return]="true"
+></app-navigation-bar>
+
+<div *ngIf="reservation && contacts" class="body">
+  <div class="p-grid card">
+    <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
+      <p-dropdown
+        [options]="contacts"
+        [(ngModel)]="reservation.contact"
+        placeholder="Contact Name"
+        optionLabel="name"
+        class="p-dropdown-lg"
+      ></p-dropdown>
+    </div>
+    <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
+      <input type="text" disabled pInputText placeholder="Contact Type" [(ngModel)]="reservation.contact.contact_type.description">
+    </div>
+    <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
+      <input type="text" disabled pInputText placeholder="Phone" [(ngModel)]="reservation.contact.phone_number">
+    </div>
+    <div class="p-col-12 p-sm-12 p-md-3 p-lg-3">
+      <p-calendar inputId="basic" [(ngModel)]="reservation.date" placeholder="Reservation Date"></p-calendar>
+    </div>
+    <div class="p-col-12">
+      <p-editor
+        [(ngModel)]="reservation.description"
+        [style]="{'height':'250px'}"
+        placeholder="{{'Enter Description'}}">
+      </p-editor>
+    </div>
+    <div class="p-col-12 submit">
+      <button
+        mat-flat-button color='warn'
+        [disabled]="!reservation.contact || !reservation.date || !reservation.description"
+        (click)="saveReservation()">SEND</button>
+    </div>
+  </div>
+</div>
+

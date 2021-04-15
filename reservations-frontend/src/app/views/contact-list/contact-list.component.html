@@ -1,0 +1,51 @@
+<app-navigation-bar
+  title="Contact List"
+  [description]="description"
+  buttonName="CREATE CONTACT"
+  buttonLink='/create-contact'
+  [return]="true"
+></app-navigation-bar>
+
+<div class="body">
+  <p-table [autoLayout]="true" [value]="contacts" [paginator]="true" [rows]="5" [responsive]="true" dataKey="id">
+    <ng-template pTemplate="colgroup">
+      <colgroup>
+          <col style="width:7%">
+          <col style="width:25%">
+          <col style="width:25%">
+          <col style="width:25%">
+          <col style="width:18%">
+      </colgroup>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
+          <th pSortableColumn="name">Contact <p-sortIcon field="name"></p-sortIcon></th>
+          <th pSortableColumn="phone_number">Phone <p-sortIcon field="phone_number"></p-sortIcon></th>
+          <th pSortableColumn="contact_type.description">Contact Type <p-sortIcon field="contact_type.description"></p-sortIcon></th>
+          <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-contact>
+        <tr>
+            <td>{{contact.id}}</td>
+            <td>
+              <div class="p-col-12 no-padding-left down">{{contact.name}}</div>
+              <div class="p-col-12 align grey no-padding-left">{{contact.birth_date}}</div>
+            </td>
+            <td>
+              <div class="p-col-12 no-padding-left down">{{contact.phone_number}}</div>
+            </td>
+            <td>
+              <div class="p-col-12 no-padding-left down">{{contact.contact_type.description}}</div>
+            </td>
+            <td>
+              <div class="p-d-inline">
+                <button mat-flat-button class="button p-mr-1" (click)="editContact(contact)">EDIT</button>
+                <button mat-flat-button color="warn" (click)="deleteContact(contact)">DELETE</button>
+              </div>
+            </td>
+        </tr>
+    </ng-template>
+  </p-table>
+</div>

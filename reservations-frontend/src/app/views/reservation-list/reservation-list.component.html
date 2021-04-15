@@ -1,0 +1,56 @@
+<app-navigation-bar
+  title="Reservation List"
+  [description]="description"
+  buttonName="CREATE RESERVATION"
+  buttonLink="/create-reservation"
+></app-navigation-bar>
+
+<div class="body">
+  <p-table [autoLayout]="true" [value]="reservations" [paginator]="true" [responsive]="true" [rows]="5" dataKey="id">
+    <ng-template pTemplate="colgroup">
+      <colgroup>
+          <col style="width:7%">
+          <col style="width:27%">
+          <col style="width:27%">
+          <col style="width:27%">
+          <col style="width:12%">
+      </colgroup>
+  </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
+          <th pSortableColumn="contact.name">Reservation <p-sortIcon field="contact.name"></p-sortIcon></th>
+          <th pSortableColumn="ranking">Ranking <p-sortIcon field="ranking"></p-sortIcon></th>
+          <th pSortableColumn="favorite">Favorite <p-sortIcon field="favorite"></p-sortIcon></th>
+          <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-reservation>
+        <tr>
+            <td>{{reservation.id}}</td>
+            <td>
+              <div class="p-col-12 no-padding-left down">{{reservation.contact.name}}</div>
+              <div class="p-col-12 align grey no-padding-left">{{reservation.date}}</div>
+            </td>
+            <td><p-rating [(ngModel)]="reservation.ranking" [cancel]="false" (ngModelChange)="updateReservation(reservation)"></p-rating></td>
+            <td>
+              <div class="p-grid">
+                <div [class]="reservation.favorite ? 'p-col-4 align black' : 'p-col-4 align grey'">Add Favorites</div>
+                <div class="p-col-8">
+                  <button
+                    mat-icon-button
+                    [class]="reservation.favorite ? 'button-red' : 'button-gray'"
+                    (click)="updateFavorite(reservation)"
+                  >
+                    <mat-icon>favorite</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </td>
+            <td>
+              <button mat-flat-button class="button" (click)="editReservation(reservation)">EDIT</button>
+            </td>
+        </tr>
+    </ng-template>
+  </p-table>
+</div>

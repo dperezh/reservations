@@ -1,0 +1,36 @@
+@import '../../app.component.scss';
+
+.body {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.button-red {
+  color: #f44336;
+}
+
+.button-gray {
+  color: lightgray;
+}
+
+.align {
+  align-self: center;
+  padding-right: 0px;
+
+  &.grey {
+    color: lightgray;
+  }
+
+  &.black {
+    color: black !important;
+  }
+}
+
+.no-padding-left {
+  padding-left: 0px;
+
+  &.down {
+    padding-bottom: 0px;
+  }
+}
