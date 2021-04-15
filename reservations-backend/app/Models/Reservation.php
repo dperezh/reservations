@@ -9,9 +9,9 @@ class Reservation extends Model
 {
     use HasFactory;
 
-    protected $fillable = array('date', 'ranking', 'favorite');
+    protected $fillable = array('date', 'ranking', 'favorite', 'description');
 
-    protected $hidden = array('contact_id');
+    protected $hidden = array('created_at', 'updated_at', 'contact_id');
 
     public function contact()
     {

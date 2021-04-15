@@ -11,7 +11,7 @@ class Contact extends Model
 
     protected $fillable = array('name', 'phone_number', 'birth_date');
 
-    protected $hidden = array('contact_type_id');
+    protected $hidden = array('created_at', 'updated_at', 'contact_type_id');
 
     public function contactType()
     {

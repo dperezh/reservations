@@ -11,6 +11,8 @@ class ContactType extends Model
 
     protected $fillable = array('description');
 
+    protected $hidden = array('created_at', 'updated_at');
+
     public function contacts()
     {
         return $this->hasMany(Contact::class);
