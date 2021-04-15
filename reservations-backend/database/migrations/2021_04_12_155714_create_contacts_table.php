@@ -20,6 +20,7 @@ class CreateContactsTable extends Migration
             $table->string('phone_number')->nullable();
             $table->date('birth_date');
             $table->foreign('contact_type_id')->references('id')->on('contact_types');
+            $table->timestamps();
         });
     }
 

@@ -16,10 +16,12 @@ class CreateReservationsTable extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('contact_id');
+            $table->string('description');
             $table->date('date');
             $table->integer('ranking');
             $table->boolean('favorite');
             $table->foreign('contact_id')->references('id')->on('contacts')->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 
