@@ -137,3 +137,11 @@ $ composer install
 ``
 $ php artisan serve
 ``
+
+## Tests
+
+``
+$ php artisan test
+``
+
+- If at any time a test fails, be sure to run the command `php artisan migrate:fresh --seed` to initialize the database
