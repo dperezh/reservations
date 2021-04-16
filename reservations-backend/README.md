@@ -1,62 +1,139 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Reservations Api
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Api to control reservations and customers
 
-## About Laravel
+## Entities
+- Reservation
+- Contact
+- ContactType
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Services
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+To consume the services, use the prefix *<http://servername:port/api>* followed by the endpoints that are documented below
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### REST
 
-## Learning Laravel
+#### Servicios para el mantenimiento de todas las entidades
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+##### Reservation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- /reservations - (GET) - Get all reservations
+- /reservations - (POST) - Save reservation
+- /reservations/{id} - (GET) - Get reservation by id
+- /reservations/{id} - (PUT) - Update reservation
+- /reservations/{id} - (DELETE) - Delete reservation
 
-## Laravel Sponsors
+##### Contact
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- /contacts - (GET) - Get all contacts
+- /contacts - (POST) - Save contact
+- /contacts/{id} - (GET) - Get contact by id
+- /contacts/{id} - (PUT) - Update contact
+- /contacts/{id} - (DELETE) - Delete contact
 
-### Premium Partners
+##### ContactType
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+- /contactTypes - (GET) - Get all contact types
+- /contactTypes - (POST) - Save contact type
+- /contactTypes/{id} - (GET) - Get contactType by id
+- /contactTypes/{id} - (PUT) - Update contact type
+- /contactTypes/{id} - (DELETE) - Delete contact type
 
-## Contributing
+## Valid requests
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+> Reservation
 
-## Code of Conduct
+```json
+{
+    "date": "2004/10/10",
+    "ranking": 1,
+    "favorite": true,
+    "contact_id": 2
+}
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
 
-## Security Vulnerabilities
+> Contact
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```json
+{
+    "name": "Marlon",
+    "phone_number": "78304753",
+    "birth_date": "2004/10/10",
+    "contact_type_id": 1
+}
+```
 
-## License
+> Contact Type
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```json
+{
+    "description": "this is a 1 type"
+}
+```
+
+## Possible answers
+
+> Reservation
+
+```json
+{
+    "id": 1,
+    "description": "Reservation for four people at the Gran Hotel Packard, includes lunch and dinner, in the evening there will be a recreational activity where participation games are included.",
+    "date": "2021-01-23",
+    "ranking": 4,
+    "favorite": 1,
+    "contact": {
+        "id": 3,
+        "name": "Nydia",
+        "phone_number": "76915909",
+        "birth_date": "1976-10-30",
+        "contact_type": {
+            "id": 2,
+            "description": "Favorite customer contact"
+        }
+    }
+},
+```
+
+> Contact
+
+```json
+{
+    "id": 1,
+    "name": "Daniel",
+    "phone_number": "78304753",
+    "birth_date": "1992-03-13",
+    "contact_type": {
+        "id": 3,
+        "description": "Contact of an non client"
+    }
+},
+```
+
+> Contact Type
+
+```json
+{
+    "id": 1,
+    "description": "Customer contact"
+},
+```
+
+## Download Project
+
+``
+$ git clone https://github.com/dperezh/reservations.git
+``
+
+## Install
+
+``
+$ composer install
+``
+
+## Iniciar
+
+``
+$ php artisan serve
+``
