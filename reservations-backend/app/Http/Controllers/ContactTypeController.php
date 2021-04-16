@@ -55,7 +55,7 @@ class ContactTypeController extends Controller
             ];
         }
 
-        return response()->json($result, 200);
+        return response()->json($result, 201);
     }
 
     /**
@@ -91,7 +91,7 @@ class ContactTypeController extends Controller
             ];
         }
 
-        return response()->json($result, 200);
+        return response()->json($result, 204);
     }
 
     /**
