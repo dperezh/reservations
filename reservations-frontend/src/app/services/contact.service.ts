@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ContactType } from '../models/contact-type';
 import { Contact } from '../models/contact';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class ContactService {
    * @returns ContactType[]
    */
   public getContactTypes(): Observable<ContactType[]> {
-    return this.http.get<ContactType[]>('http://localhost:8080/api/contactTypes');
+    return this.http.get<ContactType[]>(`${environment.API_URL}/api/contactTypes`);
   }
 
   /**
@@ -24,7 +25,7 @@ export class ContactService {
    * @returns Contact[]
    */
   public getContacts(): Observable<Contact[]> {
-    return this.http.get<Contact[]>('http://localhost:8080/api/contacts');
+    return this.http.get<Contact[]>(`${environment.API_URL}/api/contacts`);
   }
 
   /**
@@ -32,7 +33,7 @@ export class ContactService {
    * @returns Contact
    */
    public getContact(id: string): Observable<Contact> {
-    return this.http.get<Contact>(`http://localhost:8080/api/contacts/${id}`);
+    return this.http.get<Contact>(`${environment.API_URL}/api/contacts/${id}`);
   }
 
   /**
@@ -40,7 +41,7 @@ export class ContactService {
    * @returns Contact
    */
    public updateContact(contact: Contact): Observable<Contact> {
-    return this.http.put<Contact>(`http://localhost:8080/api/contacts/${contact.id}`, contact);
+    return this.http.put<Contact>(`${environment.API_URL}/api/contacts/${contact.id}`, contact);
   }
 
   /**

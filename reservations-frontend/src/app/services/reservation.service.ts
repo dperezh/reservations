@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Reservation } from '../models/reservation';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class ReservationService {
    * @returns Reservation[]
    */
   public getReservations(): Observable<Reservation[]> {
-    return this.http.get<Reservation[]>('http://localhost:8080/api/reservations');
+    return this.http.get<Reservation[]>(`${environment.API_URL}/api/reservations`);
   }
 
   /**
@@ -23,7 +24,7 @@ export class ReservationService {
    * @returns Reservation
    */
   public getReservation(id: string): Observable<Reservation> {
-    return this.http.get<Reservation>(`http://localhost:8080/api/reservations/${id}`);
+    return this.http.get<Reservation>(`${environment.API_URL}/api/reservations/${id}`);
   }
 
   /**
@@ -31,7 +32,7 @@ export class ReservationService {
    * @returns Reservation
    */
   public updateReservation(reservation: Reservation): Observable<Reservation> {
-    return this.http.put<Reservation>(`http://localhost:8080/api/reservations/${reservation.id}`, reservation);
+    return this.http.put<Reservation>(`${environment.API_URL}/api/reservations/${reservation.id}`, reservation);
   }
 
   /**
@@ -39,6 +40,6 @@ export class ReservationService {
    * @returns Reservation
    */
    public createReservation(reservation: Reservation): Observable<Reservation> {
-    return this.http.post<Reservation>('http://localhost:8080/api/reservations', reservation);
+    return this.http.post<Reservation>(`${environment.API_URL}/api/reservations`, reservation);
   }
 }
