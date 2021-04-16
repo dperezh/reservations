@@ -1,8 +1,9 @@
-## Reservations Api
+# Reservations Api
 
 Api to control reservations and customers
 
 ## Entities
+
 - Reservation
 - Contact
 - ContactType
@@ -120,19 +121,18 @@ To consume the services, use the prefix *<http://servername:port/api>* followed 
 },
 ```
 
-## Download Project
-
-``
-$ git clone https://github.com/dperezh/reservations.git
-``
-
 ## Install
 
 ``
 $ composer install
 ``
+## Initial settings
 
-## Iniciar
+1. Create a database
+2. Configure database in `config/database.php`, `.env`, `.env.example` files
+3. Run command `php artisan migrate:fresh --seed` to create tables in database and fill them with some initial data. If you want to add more initial data you can do it in the files located in database/seeders.
+
+## Start
 
 ``
 $ php artisan serve
